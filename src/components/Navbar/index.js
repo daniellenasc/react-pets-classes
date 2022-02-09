@@ -5,7 +5,11 @@ export function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
         <div className="container-fluid">
-          <Link className="text-light" to="/">
+          <Link
+            className="text-light"
+            style={{ textDecoration: "none" }}
+            to="/"
+          >
             CatchAPet
           </Link>
           <button
@@ -32,7 +36,14 @@ export function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                {/* <Link className="nav-link text-light">Fale Conosco</Link> */}
+                <Link className="nav-link text-light" to="/cadastro-pets">
+                  Cadastre um novo pet
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-light" to="/faleconosco">
+                  Fale Conosco
+                </Link>
               </li>
             </ul>
           </div>
