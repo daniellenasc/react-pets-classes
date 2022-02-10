@@ -1,10 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export function EditPet() {
   const params = useParams();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
@@ -29,7 +30,7 @@ export function EditPet() {
     }
 
     fetchPet();
-  }, []);
+  }, [params.id]);
 
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -49,7 +50,7 @@ export function EditPet() {
     delete form._id;
     axios
       .put(`https://ironrest.herokuapp.com/catchapet/${params.id}`, form)
-      .then((result) => console.log(result))
+      .then((result) => navigate(`/pets/${form.species.toLowerCase()}`))
       .catch((error) => {
         console.error(error);
       });

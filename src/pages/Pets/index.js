@@ -6,6 +6,7 @@ import axios from "axios";
 export function Pets() {
   const params = useParams();
   const [pet, setPets] = useState([]);
+  const [rerender, setRereder] = useState(true);
 
   useEffect(() => {
     async function fetchPets() {
@@ -20,7 +21,8 @@ export function Pets() {
     }
 
     fetchPets();
-  }, []);
+    setRereder(false);
+  }, [rerender]);
 
   return (
     <>
@@ -32,7 +34,9 @@ export function Pets() {
           return (
             <Card
               key={currentPet._id}
+              setRerender={setRereder}
               id={currentPet._id}
+              species={currentPet.species}
               name={currentPet.name}
               gender={currentPet.gender}
               age={currentPet.age}
