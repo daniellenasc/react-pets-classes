@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Card(props) {
   return (
     <div className="card" style={{ width: "18rem" }}>
@@ -7,6 +9,9 @@ export function Card(props) {
         <p className="card-text">{`Genero: ${props.gender}`}</p>
         <p className="card-text">Idade: {props.age}</p>
         <p className="card-text">{`Brinquero Favorito: ${props.favoriteToy}`}</p>
+        <Link to={`/editar-pet/${props.id}`}>
+          <button type="button">Editar Pet</button>
+        </Link>
       </div>
     </div>
   );

@@ -26,12 +26,13 @@ export function Pets() {
     <>
       {pet
         .filter((currentPet) => {
-          return currentPet.species.toLowerCase() === params.species;
+          return currentPet.species?.toLowerCase() === params.species;
         })
-        .map((currentPet, index) => {
+        .map((currentPet) => {
           return (
             <Card
               key={currentPet._id}
+              id={currentPet._id}
               name={currentPet.name}
               gender={currentPet.gender}
               age={currentPet.age}

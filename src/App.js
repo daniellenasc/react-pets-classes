@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Pets } from "./pages/Pets";
 import { Contact } from "./pages/Contact";
 import { PostNewPets } from "./pages/PostNewPets";
+import { EditPet } from "./pages/EditPet";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/pets/:species" element={<Pets />} />
         <Route path="/faleconosco" element={<Contact />} />
         <Route path="/cadastro-pets" element={<PostNewPets />} />
+        <Route path="/editar-pet/:id" element={<EditPet />} />
       </Routes>
     </BrowserRouter>
   );
